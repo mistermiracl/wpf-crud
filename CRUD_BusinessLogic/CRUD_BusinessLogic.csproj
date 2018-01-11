@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="BL.cs" />
+    <Compile Include="Empleado\EmpleadoBL.cs" />
+    <Compile Include="EmpleadoCargo\EmpleadoCargoBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

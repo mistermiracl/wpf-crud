@@ -18,5 +18,10 @@ namespace CRUD_DataAccess
             public const string USP_EMPLEADO_FIND = "usp_EmpleadoFind";
             public const string USP_EMPLEADO_FIND_ALL = "usp_EmpleadoFindAll";
         }
+
+        public static class EmpleadoCargo
+        {
+            public const string USP_EMPLEADO_CARGO_FIND_ALL = "usp_Empleado_CargoFindAll";
+        }
     }
 }

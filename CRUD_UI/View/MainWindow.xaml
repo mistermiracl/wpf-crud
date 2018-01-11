@@ -59,6 +59,7 @@
                     <Style TargetType="ComboBox">
                         <Setter Property="Margin" Value="15 0 15 0"/>
                         <Setter Property="Width" Value="150"/>
+                        <Setter Property="FontSize" Value="15"/>
                     </Style>
 
                     <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource baseTextBox}">
@@ -121,6 +122,26 @@
                     <DataGridTextColumn Header="Apellido" Width="*" Binding="{Binding ApellidoEmpleado}"/>
                     <DataGridTextColumn Header="Cargo" Width="*" Binding="{Binding CargoEmpleado}"/>
                     <DataGridTextColumn Header="Edad" Width="0.3*" Binding="{Binding EdadEmpleado}"/>
+                    <DataGridTemplateColumn Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="✎" Foreground="Green" Command="{Binding Actualizar}" CommandParameter="{Binding IdEmpleado}"></Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DataTemplate.Resources>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Foreground" Value="Red"/>
+                                    </Style>
+                                </DataTemplate.Resources>
+                                <Button Content="✕" Command="{Binding Eliminar}" CommandParameter="{Binding IdEmpleado}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

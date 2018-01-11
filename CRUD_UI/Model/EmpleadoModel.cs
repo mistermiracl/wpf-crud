@@ -11,19 +11,37 @@ namespace CRUD_UI.Model
     public class EmpleadoModel : BaseModel
     {
         private EmpleadoBE empleado;
-        private string nombreEmpleado;
-        private string apellidoEmpleado;
-        private string cargoEmpleado;
-        private int edadEmpleado;
+        //private string nombreEmpleado;
+        //private string apellidoEmpleado;
+        //private string cargoEmpleado;
+        //private int edadEmpleado;
+
+        public EmpleadoModel()
+        {
+            this.empleado = new EmpleadoBE();
+        }
+
+        public int IdEmpleado
+        {
+            get => empleado.Id;
+            set
+            {
+                if(empleado.Id != value)
+                {
+                    empleado.Id = value;
+                    RaisePropertyChanged(nameof(IdEmpleado));
+                }
+            }
+        }
 
         public string NombreEmpleado
         {
-            get => nombreEmpleado;
+            get => empleado.Nombre;
             set
             {
-                if (nombreEmpleado != value)
+                if (empleado.Nombre != value)
                 {
-                    nombreEmpleado = value;
+                    empleado.Nombre = value;
                     RaisePropertyChanged(nameof(NombreEmpleado));
                 }
             }
@@ -31,12 +49,12 @@ namespace CRUD_UI.Model
 
         public string ApellidoEmpleado
         {
-            get => apellidoEmpleado;
+            get => empleado.Apellido;
             set
             {
-                if (apellidoEmpleado != value)
+                if (empleado.Apellido != value)
                 {
-                    apellidoEmpleado = value;
+                    empleado.Apellido = value;
                     RaisePropertyChanged(nameof(ApellidoEmpleado));
                 }
             }
@@ -44,12 +62,12 @@ namespace CRUD_UI.Model
 
         public string CargoEmpleado
         {
-            get => cargoEmpleado;
+            get => empleado.Cargo;
             set
             {
-                if (cargoEmpleado != value)
+                if (empleado.Cargo != value)
                 {
-                    cargoEmpleado = value;
+                    empleado.Cargo = value;
                     RaisePropertyChanged(nameof(CargoEmpleado));
                 }
             }
@@ -57,14 +75,14 @@ namespace CRUD_UI.Model
 
         public int EdadEmpleado
         {
-            get => edadEmpleado;
+            get => empleado.Edad;
             set
             {
-                if(edadEmpleado != value)
+                if(empleado.Edad != value)
                 {
-                    edadEmpleado = value;
+                    empleado.Edad = value;
                     RaisePropertyChanged(nameof(EdadEmpleado));
-                    Console.WriteLine(edadEmpleado);
+                    //Console.WriteLine(edadEmpleado);
                 }
             }
         }

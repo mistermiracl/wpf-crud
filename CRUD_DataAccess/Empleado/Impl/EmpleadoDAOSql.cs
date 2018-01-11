@@ -111,6 +111,8 @@ namespace CRUD_DataAccess.Empleado.Impl
                         Cargo = reader.GetString(3),
                         Edad = reader.GetInt32(4)
                     };
+
+                    lEmpleado.Add(emp);
                 }
                 return lEmpleado;
             }

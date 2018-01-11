@@ -43,11 +43,14 @@
   <ItemGroup>
     <Compile Include="Data\Database.cs" />
     <Compile Include="Data\Impl\SqlServerDatabase.cs" />
+    <Compile Include="EmpleadoCargo\EmpleadoCargoDAO.cs" />
+    <Compile Include="EmpleadoCargo\Impl\EmpleadoCargoDAOSql.cs" />
     <Compile Include="Empleado\EmpleadoDAO.cs" />
     <Compile Include="Constantes.cs" />
     <Compile Include="Empleado\Impl\EmpleadoDAOSql.cs" />
     <Compile Include="EntityDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test\Test.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
