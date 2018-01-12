@@ -28,9 +28,10 @@ namespace CRUD_UI.ViewModel.Common
 
         public bool CanExecute(object parameter)
         {
+            //EVENT IS INVOKED WHENEVER CAN EXECUTE IS CALLED SO NO NEED TO INVOKE IT AGAIN OTHERWISE A RECURSIVE LOOP IS CAUSED 
             //CanExecuteChanged?.Invoke(this, new EventArgs());
-            if (CanExecuteChanged != null)
-                CanExecuteChanged(this, new EventArgs());
+            //if (CanExecuteChanged != null)
+                //CanExecuteChanged(this, new EventArgs());
             return this.ShouldExecute();
         }
 

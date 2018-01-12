@@ -10,6 +10,7 @@
         Height="550" 
         Width="550"
         WindowStartupLocation="CenterScreen">
+    <!--DECLARE DATACONTEXT TO USE AS VIEWMODEL-->
     <Window.DataContext>
         <viewModel:MainWindowViewModel />
     </Window.DataContext>
@@ -107,12 +108,14 @@
                             Width="150"
                             FontSize="15"
                             Margin="0 17 50 0"
+                            Cursor="Hand"
                             Command="{Binding GuardarCambios}"/>
                 </StackPanel>
                 
             </Grid>
 
-            <DataGrid Grid.Row="1" 
+            <DataGrid Name="EmpleadosGrid" 
+                      Grid.Row="1" 
                       ItemsSource="{Binding Empleados}"
                       HeadersVisibility="Column"
                       AutoGenerateColumns="False"
@@ -125,7 +128,12 @@
                     <DataGridTemplateColumn Width="Auto">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="✎" Foreground="Green" Command="{Binding Actualizar}" CommandParameter="{Binding IdEmpleado}"></Button>
+                                <!--SINCE BINDING IN A DATAGRID COLUMN REFERS TO THE CURRENT ELEMENT BY DEFAULT (WHICH IS OK) WE NEED TO REFERENCE THE PARENT BY USING EITHER RELATIVE SOURCE OR THE ELEMENT NAME -->
+                                <Button Content="✎" 
+                                        Foreground="Green"
+                                        Cursor="Hand"
+                                        Command="{Binding DataContext.Actualizar, RelativeSource={RelativeSource AncestorType=Window}}" 
+                                        CommandParameter="{Binding SelectedItem, ElementName=EmpleadosGrid}"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -136,9 +144,13 @@
                                 <DataTemplate.Resources>
                                     <Style TargetType="Button">
                                         <Setter Property="Foreground" Value="Red"/>
+                                        <Setter Property="Cursor" Value="Hand"/>
                                     </Style>
                                 </DataTemplate.Resources>
-                                <Button Content="✕" Command="{Binding Eliminar}" CommandParameter="{Binding IdEmpleado}"/>
+                                <Button Content="✕"
+                                        Command="{Binding DataContext.Eliminar, ElementName=EmpleadosGrid}" 
+                                        CommandParameter="{Binding IdEmpleado}"/>
+                                <!--SelectedItem, RelativeSource={RelativeSource AncestorType=DataGrid}}"/>-->
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
